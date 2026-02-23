@@ -1,3 +1,8 @@
+dist
+demucs-cxfreeze-win-cuda
+demucs-cxfreeze-mac
+.DS_Store
+
 *.egg-info
 __pycache__
 Session.vim
