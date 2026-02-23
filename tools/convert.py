@@ -92,7 +92,7 @@ def _eval_old(old_sig, x):
     script = (
         'from demucs import pretrained; import torch; import sys; import io; '
         'buf = io.BytesIO(sys.stdin.buffer.read()); '
-        'x = torch.load(buf); m = pretrained.load_pretrained_model('
+        'x = torch.load(buf, weights_only=False); m = pretrained.load_pretrained_model('
         f'"{old_sig}"); torch.save(m(x), sys.stdout.buffer)')
 
     buf = io.BytesIO()
@@ -104,7 +104,7 @@ def _eval_old(old_sig, x):
         assert False
 
     buf = io.BytesIO(proc.stdout)
-    return torch.load(buf)
+    return torch.load(buf, weights_only=False)
 
 
 def compare(old_sig, model):
