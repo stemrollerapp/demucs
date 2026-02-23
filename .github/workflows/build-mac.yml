@@ -17,7 +17,7 @@ jobs:
           python-version: "3.10"
       - run: pip install torch torchaudio
       - run: pip install cx_Freeze dora-search einops "julius>=0.2.3" lameenc openunmix pyyaml tqdm
-      - run: cxfreeze main.py --target-dir=demucs-cxfreeze-mac --target-name=demucs-cxfreeze --packages=demucs,torch,numpy --includes=numpy._core._multiarray_umath,numpy.core._multiarray_umath
+      - run: cxfreeze freeze_entrypoint.py --target-dir=demucs-cxfreeze-mac --target-name=demucs-cxfreeze --packages=demucs,torch,numpy --includes=numpy._core._multiarray_umath,numpy.core._multiarray_umath
       - run: ditto -c -k --sequesterRsrc --keepParent demucs-cxfreeze-mac demucs-cxfreeze-mac.zip
       - uses: softprops/action-gh-release@v1
         with:
