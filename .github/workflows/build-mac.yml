@@ -1,13 +1,11 @@
 name: build-mac
 on:
   workflow_dispatch: null
-  push:
-    branches: [main]
 
 jobs:
   build-mac:
     name: Build demucs-cxfreeze for macOS
-    runs-on: macos-latest
+    runs-on: macos-15-intel
     steps:
       - uses: actions/checkout@v3
         with:
